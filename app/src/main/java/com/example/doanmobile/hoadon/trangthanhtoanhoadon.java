@@ -58,14 +58,14 @@ public class trangthanhtoanhoadon extends AppCompatActivity {
     private int neworderId = 0;
     int currentDetailID = 1;
     private int userID;
-    //thanh toanmomo
+    /*//thanh toanmomo
     private String amount ;
     private String fee = "0";
     int environment = 0;//developer default
     private String merchantName = "HoangNgoc";
     private String merchantCode = "MOMOC2IC20220510";
     private String merchantNameLabel = "HoangNgoc";
-    private String description = "mua hàng online";
+    private String description = "mua hàng online";*/
     @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -171,12 +171,14 @@ public class trangthanhtoanhoadon extends AppCompatActivity {
                     intent.putExtra("orderId", neworderId);
                     intent.putExtra("detailId", currentDetailID);
                     startActivity(intent);
-                } else if (thanhtoanhoadonmomo.isChecked()) {
+                }
+
+                /*else if (thanhtoanhoadonmomo.isChecked()) {
                     htThanhToan = "Momo";
                     amount = String.valueOf(tongTien);
-                    requestPayment(merchantName);
+                    //requestPayment(merchantName);
 
-                } else {
+                }*/ else {
                     Toast.makeText(trangthanhtoanhoadon.this, "Phải chọn hình thức thanh toán", Toast.LENGTH_SHORT).show();
                     return;
                 }
@@ -281,7 +283,7 @@ public class trangthanhtoanhoadon extends AppCompatActivity {
     // Phương thức để tạo mã chi tiết đơn hàng duy nhất
 
     //thanhtoanmomo
-    private void requestPayment(String idDonHang) {
+ /*   private void requestPayment(String idDonHang) {
         AppMoMoLib.getInstance().setAction(AppMoMoLib.ACTION.PAYMENT);
         AppMoMoLib.getInstance().setActionType(AppMoMoLib.ACTION_TYPE.GET_TOKEN);
 
@@ -352,6 +354,6 @@ public class trangthanhtoanhoadon extends AppCompatActivity {
         } else {
             Log.d("Thanhcong", data.getStringExtra("Không thành công"));
         }
-    }
+    }*/
     //lu vao thong tin chi tiet
 }
