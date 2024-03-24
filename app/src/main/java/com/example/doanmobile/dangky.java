@@ -102,6 +102,7 @@ public class dangky extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 registerWithGmail();
+
             }
         });
 
@@ -200,6 +201,7 @@ public class dangky extends AppCompatActivity {
         // Gọi intent để thực hiện đăng ký bằng Gmail
         Intent signInIntent = mGoogleSignInClient.getSignInIntent();
         startActivityForResult(signInIntent, RC_SIGN_IN);
+
     }
     private void firebaseAuthWithGoogle(String idToken) {
         AuthCredential credential = GoogleAuthProvider.getCredential(idToken, null);
@@ -211,7 +213,7 @@ public class dangky extends AppCompatActivity {
                             // Đăng nhập thành công
                             FirebaseUser user = mAuth.getCurrentUser();
                             // Tiếp tục xử lý tại đây (nếu cần)
-                            Intent intent = new Intent(dangky.this, dangkygmail.class);
+                            Intent intent = new Intent(dangky.this, GmailDecorator.class);
                             startActivity(intent);
                         } else {
                             // Đăng nhập thất bại

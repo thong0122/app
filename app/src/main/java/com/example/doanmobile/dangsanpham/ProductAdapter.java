@@ -294,7 +294,6 @@ class sanphamHolder extends  RecyclerView.ViewHolder{
         recCard = itemView.findViewById(R.id.recCard);
         traitimbth = itemView.findViewById(R.id.traitimbth);
         soluotthich = itemView.findViewById(R.id.soluotthich);
-
-
     }
+
 }

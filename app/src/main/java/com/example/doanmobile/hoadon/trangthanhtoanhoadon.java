@@ -58,14 +58,7 @@ public class trangthanhtoanhoadon extends AppCompatActivity {
     private int neworderId = 0;
     int currentDetailID = 1;
     private int userID;
-    /*//thanh toanmomo
-    private String amount ;
-    private String fee = "0";
-    int environment = 0;//developer default
-    private String merchantName = "HoangNgoc";
-    private String merchantCode = "MOMOC2IC20220510";
-    private String merchantNameLabel = "HoangNgoc";
-    private String description = "mua hàng online";*/
+
     @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -173,12 +166,7 @@ public class trangthanhtoanhoadon extends AppCompatActivity {
                     startActivity(intent);
                 }
 
-                /*else if (thanhtoanhoadonmomo.isChecked()) {
-                    htThanhToan = "Momo";
-                    amount = String.valueOf(tongTien);
-                    //requestPayment(merchantName);
-
-                }*/ else {
+                 else {
                     Toast.makeText(trangthanhtoanhoadon.this, "Phải chọn hình thức thanh toán", Toast.LENGTH_SHORT).show();
                     return;
                 }
@@ -280,47 +268,7 @@ public class trangthanhtoanhoadon extends AppCompatActivity {
                 });
     }
 
-    // Phương thức để tạo mã chi tiết đơn hàng duy nhất
 
-    //thanhtoanmomo
- /*   private void requestPayment(String idDonHang) {
-        AppMoMoLib.getInstance().setAction(AppMoMoLib.ACTION.PAYMENT);
-        AppMoMoLib.getInstance().setActionType(AppMoMoLib.ACTION_TYPE.GET_TOKEN);
-
-
-
-        Map<String, Object> eventValue = new HashMap<>();
-        //client Required
-        eventValue.put(MoMoParameterNamePayment.MERCHANT_NAME, merchantName);
-        eventValue.put(MoMoParameterNamePayment.MERCHANT_CODE, merchantCode);
-        eventValue.put(MoMoParameterNamePayment.AMOUNT, amount);
-        eventValue.put(MoMoParameterNamePayment.DESCRIPTION, description);
-        //client Optional
-        eventValue.put(MoMoParameterNamePayment.FEE, fee);
-        eventValue.put(MoMoParameterNamePayment.MERCHANT_NAME_LABEL, merchantNameLabel);
-
-        eventValue.put(MoMoParameterNamePayment.REQUEST_ID,  merchantCode+"-"+ UUID.randomUUID().toString());
-        eventValue.put(MoMoParameterNamePayment.PARTNER_CODE, "MOMOC2IC20220510");
-
-        JSONObject objExtraData = new JSONObject();
-        try {
-            objExtraData.put("site_code", "008");
-            objExtraData.put("site_name", "CGV Cresent Mall");
-            objExtraData.put("screen_code", 0);
-            objExtraData.put("screen_name", "Special");
-            objExtraData.put("movie_name", "Kẻ Trộm Mặt Trăng 3");
-            objExtraData.put("movie_format", "2D");
-            objExtraData.put("ticket", "{\"ticket\":{\"01\":{\"type\":\"std\",\"price\":110000,\"qty\":3}}}");
-        } catch (JSONException e) {
-            e.printStackTrace();
-        }
-        eventValue.put(MoMoParameterNamePayment.EXTRA_DATA, objExtraData.toString());
-        eventValue.put(MoMoParameterNamePayment.REQUEST_TYPE, "payment");
-        eventValue.put(MoMoParameterNamePayment.LANGUAGE, "vi");
-        eventValue.put(MoMoParameterNamePayment.EXTRA, "");
-        //Request momo app
-        AppMoMoLib.getInstance().requestMoMoCallBack(this, eventValue);
-    }
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
@@ -354,6 +302,6 @@ public class trangthanhtoanhoadon extends AppCompatActivity {
         } else {
             Log.d("Thanhcong", data.getStringExtra("Không thành công"));
         }
-    }*/
+    }
     //lu vao thong tin chi tiet
 }

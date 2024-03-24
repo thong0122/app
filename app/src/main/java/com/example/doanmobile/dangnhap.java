@@ -159,7 +159,6 @@ public class dangnhap extends AppCompatActivity {
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
 
-        // Result returned from launching the Intent from GoogleSignInApi.getSignInIntent(...);
         if (requestCode == RC_SIGN_IN) {
             dialog.show();
             Task<GoogleSignInAccount> task = GoogleSignIn.getSignedInAccountFromIntent(data);
@@ -172,7 +171,6 @@ public class dangnhap extends AppCompatActivity {
                 // Google Sign In failed, update UI appropriately
                 Log.w(TAG, "Google sign in failed", e);
                 dialog.dismiss();
-                // ...
             }
         }
     }
@@ -190,14 +188,13 @@ public class dangnhap extends AppCompatActivity {
                             startActivity(i);
                             finish();
                             dialog.dismiss();
-                            //  updateUI(user);
+                            //updateUI(user);
                         } else {
 
                             dialog.dismiss();
                             Toast.makeText(dangnhap.this,"Đăng nhặp thất bại",Toast.LENGTH_SHORT).show();
                         }
 
-                        // ...
                     }
                 });
     }

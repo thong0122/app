@@ -3,8 +3,8 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
-    <uses-permission android:name="android.permission.POST_NOTIFICATIONS"/>
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
 
     <application
         android:allowBackup="true"
@@ -18,12 +18,25 @@
         tools:replace="android:theme"
         tools:targetApi="31">
         <activity
+            android:name=".GmailDecorator"
+            android:exported="false"
+            android:label="@string/title_activity_gmail_decorator"
+            android:theme="@style/Theme.Doanmobile">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".GmailConcreteDecorator"
+            android:exported="false" />
+        <activity
             android:name=".hoadonnguoiban.shophienthi"
             android:exported="false" />
         <activity
             android:name=".hoadonnguoiban.hoadonnguoiban"
             android:exported="false" />
-
         <activity
             android:name=".DanhGiaSPcuaShop.XemDanhGiaCuaShop"
             android:exported="false" />
@@ -119,9 +132,7 @@
             android:exported="false" />
         <activity
             android:name=".dangkynguoiban.manhinhnguoiban"
-            android:exported="false">
-
-        </activity>
+            android:exported="false" />
     </application>
 
 </manifest>

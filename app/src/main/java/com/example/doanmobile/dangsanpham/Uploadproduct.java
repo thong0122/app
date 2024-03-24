@@ -45,7 +45,7 @@ import java.util.Calendar;
 import java.util.List;
 import java.util.Objects;
 
-public class Uploadproduct extends AppCompatActivity {
+public class Uploadproduct extends AppCompatActivity implements PrototypeProduct {
 
     ImageView uploadImage;
     EditText uploadtensanpham,uploadmotasanpham,uploadgiacasanpham;
@@ -83,6 +83,7 @@ public class Uploadproduct extends AppCompatActivity {
 
         Spinner categorysanphamnha = findViewById(R.id.categorysanphamnha);
         categorysanphamnha.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+
 
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
@@ -265,5 +266,10 @@ public class Uploadproduct extends AppCompatActivity {
         }).addOnFailureListener(e -> {
             Toast.makeText(Uploadproduct.this, e.getMessage(), Toast.LENGTH_SHORT).show();
         });
+    }
+
+    @Override
+    public PrototypeProduct clone() {
+        return new Uploadproduct();
     }
 }
