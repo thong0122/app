@@ -1,6 +1,6 @@
 package com.example.doanmobile;
 
-public class KhachHang {
+public class  KhachHang {
 
     private int userID;
     private String matKhau;
