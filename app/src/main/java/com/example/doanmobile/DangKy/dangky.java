@@ -1,14 +1,11 @@
-package com.example.doanmobile;
+package com.example.doanmobile.DangKy;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.app.Dialog;
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
-import android.view.Window;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.EditText;
@@ -16,21 +13,20 @@ import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.doanmobile.KhachHang;
+import com.example.doanmobile.R;
 import com.example.doanmobile.dangkynguoiban.manhinhnguoiban;
+import com.example.doanmobile.trangchunguoidung;
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
-import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
 import com.google.android.gms.auth.api.signin.GoogleSignInClient;
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
-import com.google.android.gms.common.api.ApiException;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
-import com.google.firebase.auth.AuthCredential;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
-import com.google.firebase.auth.GoogleAuthProvider;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
@@ -57,10 +53,7 @@ public class dangky extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_dangky);
-
         KhachHang khachHang = new KhachHang();
-
-
 
         mAuth = FirebaseAuth.getInstance();
         db = FirebaseFirestore.getInstance(); // Thêm dòng này để khởi tạo db
@@ -93,7 +86,7 @@ public class dangky extends AppCompatActivity {
         chuyensangdangnhap.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(dangky.this, dangnhap.class);
+                Intent intent = new Intent(dangky.this, FirebaseEmail.class);
                 startActivity(intent);
             }
         });
@@ -101,8 +94,9 @@ public class dangky extends AppCompatActivity {
         loginwithgoogle.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                registerWithGmail();
-
+               // registerWithGmail();
+                Intent intent= new Intent(dangky.this, GmailDecorator.class);
+                startActivity(intent);
             }
         });
 
@@ -166,7 +160,7 @@ public class dangky extends AppCompatActivity {
                                                                             public void onSuccess(Void aVoid) {
                                                                                 Toast.makeText(dangky.this, "Đăng ký thành công", Toast.LENGTH_SHORT).show();
                                                                                 if (khachHang.isKhachHang()) {
-                                                                                    Intent intent = new Intent(dangky.this,trangchunguoidung.class);
+                                                                                    Intent intent = new Intent(dangky.this, trangchunguoidung.class);
                                                                                     startActivity(intent);
                                                                                 } else if (khachHang.isNguoiBan()) {
                                                                                     Intent intent = new Intent(dangky.this, manhinhnguoiban.class);
@@ -197,7 +191,7 @@ public class dangky extends AppCompatActivity {
             }
         });
     }
-    private void registerWithGmail() {
+    /*private void registerWithGmail() {
         // Gọi intent để thực hiện đăng ký bằng Gmail
         Intent signInIntent = mGoogleSignInClient.getSignInIntent();
         startActivityForResult(signInIntent, RC_SIGN_IN);
@@ -205,6 +199,7 @@ public class dangky extends AppCompatActivity {
     }
     private void firebaseAuthWithGoogle(String idToken) {
         AuthCredential credential = GoogleAuthProvider.getCredential(idToken, null);
+
         mAuth.signInWithCredential(credential)
                 .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
                     @Override
@@ -240,5 +235,5 @@ public class dangky extends AppCompatActivity {
                 Log.w(TAG, "Đăng nhập thất bại" + e.getStatusCode());
             }
         }
-    }
+    }*/
 }

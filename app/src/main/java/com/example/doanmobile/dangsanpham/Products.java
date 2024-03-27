@@ -1,6 +1,6 @@
 package com.example.doanmobile.dangsanpham;
 
-public class Products {
+public class Products implements PrototypeProduct {
     private int productID;
     private int shopID;
     private int categoryID;
@@ -83,5 +83,10 @@ public class Products {
 
     public void setImageURL(String imageURL) {
         this.imageURL = imageURL;
+    }
+
+    @Override
+    public PrototypeProduct clone() {
+        return new Products(productID, shopID, categoryID, title, description, price, imageURL, likeCount);
     }
 }

@@ -4,7 +4,6 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.GridLayoutManager;
-import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.annotation.SuppressLint;
@@ -14,13 +13,12 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
-import android.widget.GridLayout;
 import android.widget.ImageView;
 import android.widget.Toast;
 
 
 import com.example.doanmobile.R;
-import com.example.doanmobile.dangnhap;
+import com.example.doanmobile.DangKy.dangnhap;
 import com.example.doanmobile.giohang.GioHangActivity;
 import com.example.doanmobile.trangchunguoidung;
 import com.google.android.gms.tasks.OnFailureListener;

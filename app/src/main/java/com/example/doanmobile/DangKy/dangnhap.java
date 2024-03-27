@@ -1,4 +1,4 @@
-package com.example.doanmobile;
+package com.example.doanmobile.DangKy;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -15,7 +15,10 @@ import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.doanmobile.KhachHang;
+import com.example.doanmobile.R;
 import com.example.doanmobile.dangkynguoiban.manhinhnguoiban;
+import com.example.doanmobile.trangchunguoidung;
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
 import com.google.android.gms.auth.api.signin.GoogleSignInClient;
@@ -82,7 +85,7 @@ public class dangnhap extends AppCompatActivity {
         quenmatkhau.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(dangnhap.this,com.example.doanmobile.quenmatkhau.class);
+                Intent intent = new Intent(dangnhap.this, com.example.doanmobile.DangKy.quenmatkhau.class);
                 startActivity(intent);
             }
         });

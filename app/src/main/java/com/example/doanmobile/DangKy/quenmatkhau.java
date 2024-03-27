@@ -1,4 +1,4 @@
-package com.example.doanmobile;
+package com.example.doanmobile.DangKy;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -12,14 +12,11 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Toast;
 
+import com.example.doanmobile.R;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.firestore.DocumentReference;
-import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
-import com.google.firebase.firestore.QueryDocumentSnapshot;
-import com.google.firebase.firestore.QuerySnapshot;
 
 public class quenmatkhau extends AppCompatActivity {
     ImageView backquenmatkhau;
@@ -41,7 +38,7 @@ public class quenmatkhau extends AppCompatActivity {
         backquenmatkhau.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(quenmatkhau.this,dangnhap.class);
+                Intent intent = new Intent(quenmatkhau.this, dangnhap.class);
                 startActivity(intent);
             }
         });

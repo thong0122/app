@@ -45,7 +45,7 @@ import java.util.Calendar;
 import java.util.List;
 import java.util.Objects;
 
-public class Uploadproduct extends AppCompatActivity implements PrototypeProduct {
+public class Uploadproduct extends AppCompatActivity  {
 
     ImageView uploadImage;
     EditText uploadtensanpham,uploadmotasanpham,uploadgiacasanpham;
@@ -57,7 +57,7 @@ public class Uploadproduct extends AppCompatActivity implements PrototypeProduct
     List<String> danhSachDanhMuc;
     ArrayAdapter<String> adapter;
     String imageURL;
-
+    ProductManager productManager;
     private int shopID;
     private int categoryID;
     private static int currentProductID = 0;
@@ -83,8 +83,6 @@ public class Uploadproduct extends AppCompatActivity implements PrototypeProduct
 
         Spinner categorysanphamnha = findViewById(R.id.categorysanphamnha);
         categorysanphamnha.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-
-
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
 
@@ -117,29 +115,6 @@ public class Uploadproduct extends AppCompatActivity implements PrototypeProduct
             }
         });
         categorysanphamnha.setAdapter(adapter);
-
-
-
-
-        // Thêm đoạn code sau vào phương thức onCreate
-        FirebaseFirestore db = FirebaseFirestore.getInstance();
-        db.collection("Category")
-                .get()
-                .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
-                    @Override
-                    public void onComplete(@NonNull Task<QuerySnapshot> task) {
-                        if (task.isSuccessful()) {
-                            for (QueryDocumentSnapshot document : task.getResult()) {
-                                Category category = document.toObject(Category.class);
-                                danhSachDanhMuc.add(category.getCategoryName());
-                            }
-                            adapter.notifyDataSetChanged();
-                        } else {
-                            Toast.makeText(Uploadproduct.this, "Không thể lấy danh mục từ Firestore", Toast.LENGTH_SHORT).show();
-                        }
-                    }
-                });
-
         //lựa chọn hình ảnh
         ActivityResultLauncher<Intent> activityResultLauncher = registerForActivityResult(
                 new ActivityResultContracts.StartActivityForResult(),
@@ -179,8 +154,8 @@ public class Uploadproduct extends AppCompatActivity implements PrototypeProduct
         double price = Double.parseDouble(uploadgiacasanpham.getText().toString());
         db = FirebaseFirestore.getInstance();
 
-        String selectedCategory = categorysanphamnha.getSelectedItem().toString(); // Lấy tên danh mục
-        CollectionReference categoryRef = db.collection("Category");
+        //String selectedCategory = categorysanphamnha.getSelectedItem().toString(); // Lấy tên danh mục
+/*        CollectionReference categoryRef = db.collection("Category");
         categoryRef.get().addOnCompleteListener(task -> {
                     if (task.isSuccessful()) {
                         QuerySnapshot querySnapshot = task.getResult();
@@ -189,7 +164,7 @@ public class Uploadproduct extends AppCompatActivity implements PrototypeProduct
                             int categoryId = category.getCategoryID();
                         }
                     }
-                });
+                });*/
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
         if (user != null) {
             String documentId = user.getUid(); // Đây là ID của tài khoản người dùng
@@ -229,10 +204,10 @@ public class Uploadproduct extends AppCompatActivity implements PrototypeProduct
                         dialog.show();
                     }
                 });
-            }).addOnFailureListener(e -> {
+            })/*.addOnFailureListener(e -> {
                 dialog.dismiss();
                 Toast.makeText(Uploadproduct.this, "Lỗi khi tải lên hình ảnh", Toast.LENGTH_SHORT).show();
-            });
+            */;
         }
     }
     public  void uploadData (String title,String mota, double price,int productID, int categoryID,int shopID)
@@ -255,6 +230,8 @@ public class Uploadproduct extends AppCompatActivity implements PrototypeProduct
                 }else {
                     // Sản phẩm chưa tồn tại, thêm mới
                     productsCollection.add( product);
+                    Products clonedProduct = (Products) productManager.createProduct();
+                    clonedProduct.clone();
                 }
                 Toast.makeText(Uploadproduct.this, "Lưu thông tin", Toast.LENGTH_SHORT).show();
                 Intent intent = new Intent(Uploadproduct.this, manhinhnguoiban.class);
@@ -268,8 +245,4 @@ public class Uploadproduct extends AppCompatActivity implements PrototypeProduct
         });
     }
 
-    @Override
-    public PrototypeProduct clone() {
-        return new Uploadproduct();
-    }
 }

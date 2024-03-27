@@ -8,12 +8,11 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.example.doanmobile.DanhGiaSPcuaShop.XemDanhGiaCuaShop;
 import com.example.doanmobile.R;
 import com.example.doanmobile.chat.NguoidungvoiShopActivity;
-import com.example.doanmobile.dangnhap;
+import com.example.doanmobile.DangKy.dangnhap;
 import com.example.doanmobile.hoadonnguoiban.hoadonnguoiban;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;

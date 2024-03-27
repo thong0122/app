@@ -5,7 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".quenmatkhau">
+    tools:context=".DangKy.quenmatkhau">
 
     <RelativeLayout
         android:id="@+id/content_container"
@@ -115,7 +115,7 @@
 
 
                         <RelativeLayout
-                            android:id="@+id/_24___arrows___chevron_left"
+                            android:id="@+id/accessibility_custom_action_24"
                             android:layout_marginTop="6dp"
                             android:layout_marginStart="6dp"
                             android:layout_width="wrap_content"

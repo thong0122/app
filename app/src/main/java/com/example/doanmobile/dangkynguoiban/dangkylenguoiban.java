@@ -14,23 +14,12 @@ import android.widget.Toast;
 
 import com.example.doanmobile.KhachHang;
 import com.example.doanmobile.R;
-import com.example.doanmobile.dangky;
 import com.example.doanmobile.profileuser;
 import com.google.android.gms.tasks.OnSuccessListener;
-import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
-import com.google.firebase.firestore.CollectionReference;
-import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
-import com.google.firebase.firestore.Query;
-import com.google.firebase.firestore.QueryDocumentSnapshot;
-import com.google.firebase.firestore.QuerySnapshot;
-import com.google.firebase.firestore.auth.User;
-
-import java.util.ArrayList;
-import java.util.List;
 
 public class dangkylenguoiban extends AppCompatActivity {
     ImageView dknguoiban, dongdangkyshop;
